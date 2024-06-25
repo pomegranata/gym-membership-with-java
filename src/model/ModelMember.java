@@ -2,17 +2,20 @@ package model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import model.Model;
+import java.sql.ResultSetMetaData;
+import javax.swing.table.DefaultTableModel;
 
 public class ModelMember extends Model{
 
-   private final Connection con;
+    private String query;
     
     public ModelMember(Connection con){
-        this.con = con;
+        super(con);
     }
     
     @Override
-    public String Select() {
+    public String select() {
         String s="";
         try { 
             query = "select id, nama, alamat, plan, trainer, price from member";
@@ -20,34 +23,39 @@ public class ModelMember extends Model{
             rs = st.executeQuery(query);
             
             while (rs.next()) {
-                s += rs.getString("id");
-                s +="  "+rs.getString("nama");
-                s +="  "+rs.getString("alamat");
-                s +="  "+rs.getString("plan");
-                s +="  "+rs.getString("trainer");
-                s +="  "+rs.getString("price");
-                s+="\n";
+                s += rs.getString("id")+ " ";
+                s +="  "+rs.getString("nama")+ " ";
+                s +="  "+rs.getString("alamat")+ " ";
+                s +="  "+rs.getString("plan")+ " ";
+                s +="  "+rs.getString("trainer")+ " ";
+                s +="  "+rs.getString("price")+ " ";
             }
             
         } catch (SQLException ex) {
-            System.out.println("Gagal Tampil");
+            System.out.println("Gagal Eksekusi");
         }
         return s;
     }
-
+    
     @Override
-    public int Insert(String[] Params) {
-        String id=Params[0];
-        String nama=Params[1];
-        String alamat=Params[2];
-        String plan=Params[3];
-        String trainer=Params[4];
-        String price=Params[5];
-        
+    public DefaultTableModel dataModel(){
+        DefaultTableModel r=null;
+        try {
+            String query = "select id, nama, alamat, plan, trainer, price from member";
+            st  = con.prepareStatement(query);
+            rs = st.executeQuery(query);
+            r = buildTableModel(rs);
+        } catch (SQLException ex) {
+            System.err.println("Eksekusi Gagal");
+        }
+        return r;
+    }
+    
+    public int insert(String id, String nama, String alamat, String plan, String trainer, String price){
         int i=-1;
         try{
-            query = "insert into member(id, nama, alamat, plan, trainer, price) values('"+id+"','"+nama+"','"+alamat+"',"
-                    + "'"+plan+"','"+trainer+"','"+price+"')";
+            String query = "insert into member(id, nama, alamat, plan, trainer, price) "
+                    + "values('"+id+"','"+nama+"','"+alamat+"','"+plan+"','"+trainer+"','"+price+"')";
             st  = con.prepareStatement(query);
             i = st.executeUpdate(query);
         }catch(SQLException ex){
@@ -55,39 +63,4 @@ public class ModelMember extends Model{
         }
         return i;
     }
-
-    @Override
-    public int Update(String[] Params) {
-        String id=Params[0];
-        String nama=Params[1];
-        String alamat=Params[2];
-        String plan=Params[3];
-        String trainer=Params[4];
-        String price=Params[5];
-        int i=-1;
-        try{
-            query = "update member set id='"+id+"', nama='"+nama+"',alamat='"+alamat+"', plan = '"+plan+"', "
-                    + "trainer = '"+trainer+"', price = '"+price+"' where id='"+id+"'";
-            st  = con.prepareStatement(query);
-            i = st.executeUpdate(query);
-        }catch(SQLException ex){
-            System.out.println("Error:"+ex);
-        }
-        return i;
-    }
-
-    @Override
-    public int Delete(String[] Params) {
-        String id=Params[0];
-        int i=-1;
-        try{
-            query = "delete from member where id='"+id+"'";
-            st  = con.prepareStatement(query);
-            i = st.executeUpdate(query);
-        }catch(SQLException ex){
-            System.out.println("Error:"+ex);
-        }
-        return i;
-    }
-
 }

@@ -12,13 +12,15 @@ import java.sql.SQLException;
  * @author ACER NITRO
  */
 public class MainForm extends javax.swing.JFrame {
-
+    
+    private DataMember dMember;
+    private FormMember fMember;
     /**
      * Creates new form MainForm
      */
     
-    public static Connection con;
-    DataMember dataMember;
+    //public static Connection con;
+    //DataMember dataMember;
     
     public MainForm() {
         initComponents();
@@ -36,6 +38,7 @@ public class MainForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,13 +51,21 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem1.setText("Member");
+        jMenuItem1.setText("MemberMDI");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("FormMember");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -82,11 +93,20 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        dataMember = new DataMember();
-        this.add(dataMember);
-        dataMember.show();
+        if(dMember==null){
+            dMember = new DataMember();
+        }
+        dMember.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        if(fMember==null){
+            fMember = new FormMember();
+        }
+        fMember.setVisible(true); 
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    
+        
     /**
      * @param args the command line arguments
      */
@@ -118,7 +138,7 @@ public class MainForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainForm().setVisible(true);
-                try {
+                /*try {
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection
                     ("jdbc:mysql://127.0.0.1:3306/member","root","");
@@ -126,7 +146,7 @@ public class MainForm extends javax.swing.JFrame {
                     System.out.println("Error Driver");
                 } catch (SQLException ex) {
                     System.out.println("Error Database");
-                }
+                }*/
             }
         });
     }
@@ -136,5 +156,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

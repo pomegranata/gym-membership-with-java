@@ -4,17 +4,22 @@
  */
 package view.data;
 
+import static view.data.FormMember.con;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.ModelMember;
-import static view.data.MainForm.con;
 
 /**
  *
- * @author ACER NITRO
+ * @author Imelda Maretta Putri
  */
 public class DataMember extends javax.swing.JInternalFrame {
     
-     
+    private Connection con;
     /**
      * Creates new form DataMmber
      */
@@ -54,6 +59,29 @@ public class DataMember extends javax.swing.JInternalFrame {
         taTampil = new javax.swing.JTextPane();
         btnSimpan1 = new javax.swing.JButton();
         btnTampil = new javax.swing.JButton();
+
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Member Information");
@@ -190,14 +218,40 @@ public class DataMember extends javax.swing.JInternalFrame {
 
     private void btnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpan1ActionPerformed
         ModelMember m = new ModelMember(con);
-        String[] params={inID.getText(),inNama.getText(),inAlamat.getText(),inPlan.getText(),inTrainer.getText(),inPrice.getText()};
-        m.Insert(params);
+        
+        if(m.insert(inID.getText(),inNama.getText(),inAlamat.getText(),inPlan.getText(),inTrainer.getText(),inPrice.getText())==1){
+            String message="ID \t: "+inID.getText()+"\n"+
+                "Nama \t: "+inNama.getText()+"\n"+
+                "Alamat \t: "+inAlamat.getText()+"\n"+
+                "Plan \t: "+inPlan.getText()+"\n"+
+                "Trainer \t: "+inTrainer.getText()+"\n"+
+                "Price \t: "+inPrice.getText()+"\n"+
+                "Berhasil Disimpan";
+            JOptionPane.showMessageDialog(rootPane, message);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Data Gagal Disimpan");
+        }
     }//GEN-LAST:event_btnSimpan1ActionPerformed
 
     private void btnTampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilActionPerformed
         ModelMember m = new ModelMember(con);
-        taTampil.setText(m.Select());
+        taTampil.setText(m.select());
     }//GEN-LAST:event_btnTampilActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+         try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test","root","");
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(FormMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ModelMember m=new ModelMember(con);
+        taTampil.setText(m.select());
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
