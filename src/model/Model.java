@@ -1,16 +1,10 @@
 package model;
 
-/**
- *
- * @author Imelda Maretta Putri
- * F11.2022.00053
- */
-
 import java.sql.*;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
-public abstract class Model {
+public abstract class Model{
     
     protected final Connection con;
     protected Statement st;

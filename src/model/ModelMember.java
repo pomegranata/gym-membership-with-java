@@ -18,7 +18,7 @@ public class ModelMember extends Model{
     public String select() {
         String s="";
         try { 
-            query = "select id, nama, alamat, plan, trainer, price from member";
+            String query = "select id, nama, alamat, plan, trainer, price from member";
             st  = con.prepareStatement(query);
             rs = st.executeQuery(query);
             
@@ -30,7 +30,6 @@ public class ModelMember extends Model{
                 s +="  "+rs.getString("trainer")+ " ";
                 s +="  "+rs.getString("price")+ " ";
             }
-            
         } catch (SQLException ex) {
             System.out.println("Gagal Eksekusi");
         }
@@ -63,4 +62,31 @@ public class ModelMember extends Model{
         }
         return i;
     }
+    
+    public int update(String id, String nama, String alamat, String plan, String trainer, String price) {
+        int i=-1;
+        try{
+            String query = "update member set id='"+id+"', nama='"+nama+"',alamat='"+alamat+"', plan = '"+plan+"', "
+                    + "trainer = '"+trainer+"', price = '"+price+"' where id='"+id+"'";
+            st  = con.prepareStatement(query);
+            i = st.executeUpdate(query);
+        }catch(SQLException ex){
+            System.out.println("Error:"+ex);
+        }
+        return i;
+    }
+    
+    public int delete(String id) {
+        int i=-1;
+        try{
+            String query = "delete from member where id='"+id+"'";
+            st  = con.prepareStatement(query);
+            i = st.executeUpdate(query);
+        }catch(SQLException ex){
+            System.out.println("Error:"+ex);
+        }
+        return i;
+    }
+
+
 }
