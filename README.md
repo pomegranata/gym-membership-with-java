@@ -1,22 +1,22 @@
-📋 Gym Membership Management System
+# 📋 Gym Membership Management System
 
-📖 Project Description
+## 📖 Project Description
 The Gym Membership Management System is a comprehensive application designed to efficiently manage the data of gym members, trainers, and schedules. It enables gym administrators to register new members, update member information, and remove members from the system. This functionality is also extended to trainers and schedules. Built using Java, the project follows Object-Oriented Programming (OOP) principles to ensure robust and scalable code.
 
-🚀 Key Features
+## 🚀 Key Features
 Register New Members: Add new members with complete details such as name, address, phone number, and membership type.
 Update Member Information: Modify existing member information, including updates to membership type and contact details.
 Delete Members: Remove members from the system easily.
 Read Members: Read members data from system.
 (Also applies to Trainer and Schedule)
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 Programming Language: Java 17+
 Framework: Java Swing (for GUI)
 Database: MySQL (for data storage)
 Tooling: Maven (for dependency management)
 
-📥 Installation
+## 📥 Installation
 Prerequisites
 Ensure you have the following installed:
 
@@ -35,7 +35,7 @@ Run the Application:
 
 mvn exec:java -Dexec.mainClass="com.example.gym.MainApp"
 
-🚀 Usage
+## 🚀 Usage
 
 Adding a New Member:
 Open the application and select "Member".
