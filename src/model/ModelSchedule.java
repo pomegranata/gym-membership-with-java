@@ -10,9 +10,9 @@ import javax.swing.table.DefaultTableModel;
  * F11.2022.00053
  */
 
-public class ModelJadwal extends Model {
+public class ModelSchedule extends Model {
    
-    public ModelJadwal(Connection con){
+    public ModelSchedule(Connection con){
         super(con);
     }
     
@@ -20,7 +20,7 @@ public class ModelJadwal extends Model {
     public String select() {
         String s="";
         try { 
-            String query = "select id, memID, trID, sesi, plan from jadwal";
+            String query = "select id, memID, trID, sesi, plan from schedule";
             st  = con.prepareStatement(query);
             rs = st.executeQuery(query);
             
@@ -41,7 +41,7 @@ public class ModelJadwal extends Model {
     public DefaultTableModel dataModel(){
         DefaultTableModel r=null;
         try {
-            String query = "select id, memID, trID, sesi, plan from jadwal";
+            String query = "select id, memID, trID, sesi, plan from schedule";
             st  = con.prepareStatement(query);
             rs = st.executeQuery(query);
             r = buildTableModel(rs);
@@ -54,7 +54,7 @@ public class ModelJadwal extends Model {
     public int insert(String id, String memID, String trID, String sesi, String plan){
         int i=-1;
         try{
-            String query = "insert into jadwal(id, memID, trID, sesi, plan) "
+            String query = "insert into schedule(id, memID, trID, sesi, plan) "
                     + "values('"+id+"','"+memID+"','"+trID+"','"+sesi+"','"+plan+"')";
             st  = con.prepareStatement(query);
             i = st.executeUpdate(query);
@@ -67,7 +67,7 @@ public class ModelJadwal extends Model {
     public int update(String id, String memID, String trID, String sesi, String plan) {
         int i=-1;
         try{
-            String query = "update jadwal set id='"+id+"', memID = '"+memID+"', trID = '"+trID+"', sesi = '"+sesi+"', "
+            String query = "update schedule set id='"+id+"', memID = '"+memID+"', trID = '"+trID+"', sesi = '"+sesi+"', "
                     + "plan = '"+plan+"' where id='"+id+"'";
             st  = con.prepareStatement(query);
             i = st.executeUpdate(query);
@@ -80,7 +80,7 @@ public class ModelJadwal extends Model {
     public int delete(String id) {
         int i=-1;
         try{
-            String query = "delete from jadwal where id='"+id+"'";
+            String query = "delete from schedule where id='"+id+"'";
             st  = con.prepareStatement(query);
             i = st.executeUpdate(query);
         }catch(SQLException ex){

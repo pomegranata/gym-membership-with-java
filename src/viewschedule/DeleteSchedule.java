@@ -1,4 +1,4 @@
-package viewjadwal;
+package viewschedule;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,21 +8,21 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import model.ModelJadwal;
+import model.ModelSchedule;
 
 /**
  *
  * @author Imelda Maretta Putri
  * F11.2022.00053
  */
-public class DeleteJadwal extends javax.swing.JFrame {
+public class DeleteSchedule extends javax.swing.JFrame {
     
     static Connection con;
     
     /**
-     * Creates new form DeleteJadwal
+     * Creates new form DeleteSchedule
      */
-    public DeleteJadwal() {
+    public DeleteSchedule() {
         initComponents();
     }
 
@@ -136,7 +136,7 @@ public class DeleteJadwal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        ModelJadwal jd = new ModelJadwal(con);
+        ModelSchedule jd = new ModelSchedule(con);
 
         if(jd.delete(inID.getText())==1){
             String message="ID \t: "+inID.getText()+"\n"+
@@ -156,9 +156,9 @@ public class DeleteJadwal extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/membership","root","");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(InsertJadwal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertSchedule.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ModelJadwal jd = new ModelJadwal(con);
+        ModelSchedule jd = new ModelSchedule(con);
         
         tTersimpan.setModel(jd.dataModel());                                    
     }//GEN-LAST:event_formWindowActivated
@@ -180,20 +180,21 @@ public class DeleteJadwal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DeleteJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DeleteJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DeleteJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DeleteJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeleteJadwal().setVisible(true);
+                new DeleteSchedule().setVisible(true);
             }
         });
     }

@@ -1,25 +1,25 @@
-package viewjadwal;
+package viewschedule;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.ModelJadwal;
+import model.ModelSchedule;
 
 /**
  *
  * @author Imelda Maretta Putri
  * F11.2022.00053
  */
-public class ReadJadwal extends javax.swing.JFrame {
+public class ReadSchedule extends javax.swing.JFrame {
     
     private Connection con;
     
     /**
-     * Creates new form ReadJadwal
+     * Creates new form ReadSchedule
      */
-    public ReadJadwal() {
+    public ReadSchedule() {
         initComponents();
     }
 
@@ -91,9 +91,9 @@ public class ReadJadwal extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/membership","root","");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ReadJadwal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReadSchedule.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ModelJadwal jd=new ModelJadwal(con);
+        ModelSchedule jd=new ModelSchedule(con);
         
         tTersimpan.setModel(jd.dataModel());
     }//GEN-LAST:event_formWindowActivated
@@ -115,20 +115,21 @@ public class ReadJadwal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReadJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReadJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReadJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReadJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReadJadwal().setVisible(true);
+                new ReadSchedule().setVisible(true);
             }
         });
     }

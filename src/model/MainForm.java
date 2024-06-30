@@ -2,7 +2,7 @@ package model;
 
 import viewmember.*;
 import viewtrainer.*;
-import viewjadwal.*;
+import viewschedule.*;
 
 /**
  *
@@ -20,10 +20,10 @@ public class MainForm extends javax.swing.JFrame {
     private UpdateTrainer upTrainer;
     private DeleteTrainer delTrainer;
     private ReadTrainer readTrainer;
-    private InsertJadwal insJadwal;
-    private UpdateJadwal upJadwal;
-    private DeleteJadwal delJadwal;
-    private ReadJadwal readJadwal;
+    private InsertSchedule insSchedule;
+    private UpdateSchedule upSchedule;
+    private DeleteSchedule delSchedule;
+    private ReadSchedule readSchedule;
     
     /**
      * Creates new form MainForm
@@ -151,7 +151,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Jadwal");
+        jMenu3.setText("Schedule");
 
         ScheduleInsert.setText("Insert");
         ScheduleInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -277,35 +277,35 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_TrainerReadActionPerformed
 
     private void ScheduleInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleInsertActionPerformed
-        if(insJadwal == null){
-            insJadwal = new InsertJadwal();
+        if(insSchedule == null){
+            insSchedule = new InsertSchedule();
         }
         
-        insJadwal.setVisible(true);
+        insSchedule.setVisible(true);
     }//GEN-LAST:event_ScheduleInsertActionPerformed
 
     private void ScheduleUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleUpdateActionPerformed
-        if(upJadwal == null){
-            upJadwal = new UpdateJadwal();
+        if(upSchedule == null){
+            upSchedule = new UpdateSchedule();
         }
         
-        upJadwal.setVisible(true);
+        upSchedule.setVisible(true);
     }//GEN-LAST:event_ScheduleUpdateActionPerformed
 
     private void ScheduleDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleDeleteActionPerformed
-       if(delJadwal == null){
-           delJadwal = new DeleteJadwal();
+       if(delSchedule == null){
+           delSchedule = new DeleteSchedule();
        }
        
-       delJadwal.setVisible(true);
+       delSchedule.setVisible(true);
     }//GEN-LAST:event_ScheduleDeleteActionPerformed
 
     private void ScheduleReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleReadActionPerformed
-       if(readJadwal == null){
-           readJadwal = new ReadJadwal();
+       if(readSchedule == null){
+           readSchedule = new ReadSchedule();
        }
        
-       readJadwal.setVisible(true);
+       readSchedule.setVisible(true);
     }//GEN-LAST:event_ScheduleReadActionPerformed
     
         

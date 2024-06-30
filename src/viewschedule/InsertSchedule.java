@@ -1,5 +1,4 @@
-package viewjadwal;
-
+package viewschedule;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,20 +8,21 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import model.ModelJadwal;
+import model.ModelSchedule;
 
 /**
  *
- * @author Imelda Maretta Putr
+ * @author Imelda Maretta Putri
  * F11.2022.00053
  */
-public class UpdateJadwal extends javax.swing.JFrame {
+public class InsertSchedule extends javax.swing.JFrame {
     
     static Connection con;
+    
     /**
-     * Creates new form UpdateJadwal
+     * Creates new form InsertSchedule
      */
-    public UpdateJadwal() {
+    public InsertSchedule() {
         initComponents();
     }
 
@@ -36,12 +36,6 @@ public class UpdateJadwal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        inTrID = new javax.swing.JTextPane();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        inSesi = new javax.swing.JTextPane();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         inID = new javax.swing.JTextPane();
@@ -49,12 +43,18 @@ public class UpdateJadwal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         inMemID = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        inPlan = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        inTrID = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
         tTersimpan = new javax.swing.JTable();
-        btnUpdate = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
         btnBatal = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        inSesi = new javax.swing.JTextPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        inPlan = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -64,17 +64,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Schedule Update");
-
-        jScrollPane3.setViewportView(inTrID);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("Plan");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Sesi");
-
-        jScrollPane4.setViewportView(inSesi);
+        jLabel1.setText("Schedule Input");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("ID");
@@ -89,7 +79,7 @@ public class UpdateJadwal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Trainer ID");
 
-        jScrollPane5.setViewportView(inPlan);
+        jScrollPane3.setViewportView(inTrID);
 
         tTersimpan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,11 +94,11 @@ public class UpdateJadwal extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(tTersimpan);
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSimpan.setText("SIMPAN");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
             }
         });
 
@@ -120,21 +110,27 @@ public class UpdateJadwal extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("Plan");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Sesi");
+
+        jScrollPane4.setViewportView(inSesi);
+
+        jScrollPane5.setViewportView(inPlan);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(272, 272, 272)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -144,15 +140,19 @@ public class UpdateJadwal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(btnUpdate)
+                .addGap(55, 55, 55))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(188, 188, 188)
+                .addComponent(btnSimpan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBatal)
-                .addGap(193, 193, 193))
+                .addGap(209, 209, 209))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(334, 334, 334)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,31 +183,31 @@ public class UpdateJadwal extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBatal)
-                    .addComponent(btnUpdate))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(btnSimpan))
+                .addGap(47, 47, 47))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        ModelJadwal jd = new ModelJadwal(con);
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        ModelSchedule jd = new ModelSchedule(con);
 
-        if(jd.update(inID.getText(),inMemID.getText(),inTrID.getText(),inSesi.getText(),inPlan.getText())==1){
+        if(jd.insert(inID.getText(),inMemID.getText(),inTrID.getText(),inSesi.getText(),inPlan.getText())==1){
             String message="ID \t: "+inID.getText()+"\n"+
             "Member ID \t: "+inMemID.getText()+"\n"+
             "Trainer ID \t: "+inTrID.getText()+"\n"+
             "Sesi ID \t: "+inSesi.getText()+"\n"+
             "Plan \t: "+inPlan.getText()+"\n"+
-            "Berhasil Diperbarui";
+            "Berhasil Disimpan";
             JOptionPane.showMessageDialog(rootPane, message);
         }else{
-            JOptionPane.showMessageDialog(rootPane, "Data Gagal Diperbarui");
+            JOptionPane.showMessageDialog(rootPane, "Data Gagal Disimpan");
         }
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         inID.setText("");
@@ -218,13 +218,13 @@ public class UpdateJadwal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        try {
+       try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/membership","root","");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(InsertJadwal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertSchedule.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ModelJadwal jd = new ModelJadwal(con);
+        ModelSchedule jd = new ModelSchedule(con);
         
         tTersimpan.setModel(jd.dataModel());
     }//GEN-LAST:event_formWindowActivated
@@ -246,27 +246,28 @@ public class UpdateJadwal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateJadwal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsertSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateJadwal().setVisible(true);
+                new InsertSchedule().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatal;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSimpan;
     private javax.swing.JTextPane inID;
     private javax.swing.JTextPane inMemID;
     private javax.swing.JTextPane inPlan;
