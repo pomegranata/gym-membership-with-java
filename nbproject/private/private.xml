@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Java/FormMembership/src/model/MainForm.java</file>
-            <file>file:/D:/Java/FormMembership/src/viewschedule/DeleteSchedule.java</file>
+            <file>file:/D:/Java/FormMembership/src/viewmember/FormMember.java</file>
+            <file>file:/D:/Java/FormMembership/src/viewmember/ReadMember.java</file>
+            <file>file:/D:/Java/FormMembership/src/viewmember/UpdateMember.java</file>
+            <file>file:/D:/Java/FormMembership/src/viewmember/DeleteMember.java</file>
         </group>
     </open-files>
 </project-private>

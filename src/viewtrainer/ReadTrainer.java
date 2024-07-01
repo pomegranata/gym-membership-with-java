@@ -1,5 +1,7 @@
 package viewtrainer;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import model.ModelTrainer;
 
@@ -99,9 +102,27 @@ public class ReadTrainer extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(InsertTrainer.class.getName()).log(Level.SEVERE, null, ex);
         }
-         ModelTrainer tr = new ModelTrainer(con);
+        ModelTrainer tr = new ModelTrainer(con);
         
         tTersimpan.setModel(tr.dataModel());
+        
+        tTersimpan.getColumnModel().getColumn(1).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("Hermann")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else {
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
     }//GEN-LAST:event_formWindowActivated
 
     /**
