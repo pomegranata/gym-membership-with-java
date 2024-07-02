@@ -1,12 +1,16 @@
 package viewschedule;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import model.ModelSchedule;
 
@@ -55,6 +59,9 @@ public class InsertSchedule extends javax.swing.JFrame {
         inSesi = new javax.swing.JTextPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         inPlan = new javax.swing.JTextPane();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        inProgress = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -120,39 +127,47 @@ public class InsertSchedule extends javax.swing.JFrame {
 
         jScrollPane5.setViewportView(inPlan);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setText("Progress");
+
+        jScrollPane8.setViewportView(inProgress);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(188, 188, 188)
                 .addComponent(btnSimpan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
                 .addComponent(btnBatal)
                 .addGap(209, 209, 209))
             .addGroup(layout.createSequentialGroup()
                 .addGap(334, 334, 334)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +175,7 @@ public class InsertSchedule extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -181,9 +196,13 @@ public class InsertSchedule extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBatal)
                     .addComponent(btnSimpan))
@@ -196,12 +215,13 @@ public class InsertSchedule extends javax.swing.JFrame {
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         ModelSchedule jd = new ModelSchedule(con);
 
-        if(jd.insert(inID.getText(),inMemID.getText(),inTrID.getText(),inSesi.getText(),inPlan.getText())==1){
+        if(jd.insert(inID.getText(),inMemID.getText(),inTrID.getText(),inSesi.getText(),inPlan.getText(),inProgress.getText())==1){
             String message="ID \t: "+inID.getText()+"\n"+
             "Member ID \t: "+inMemID.getText()+"\n"+
             "Trainer ID \t: "+inTrID.getText()+"\n"+
             "Sesi ID \t: "+inSesi.getText()+"\n"+
             "Plan \t: "+inPlan.getText()+"\n"+
+            "Progress \t: "+inProgress.getText()+"\n"+
             "Berhasil Disimpan";
             JOptionPane.showMessageDialog(rootPane, message);
         }else{
@@ -215,6 +235,7 @@ public class InsertSchedule extends javax.swing.JFrame {
         inTrID.setText("");
         inSesi.setText("");
         inPlan.setText("");
+        inProgress.setText("");
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -227,6 +248,78 @@ public class InsertSchedule extends javax.swing.JFrame {
         ModelSchedule jd = new ModelSchedule(con);
         
         tTersimpan.setModel(jd.dataModel());
+        
+// Warna Tabel
+        
+        tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("Pagi")){
+                            cell.setBackground(Color.CYAN);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Siang")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Sore")){
+                            cell.setBackground(Color.ORANGE);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Malam")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE); 
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
+
+        tTersimpan.getColumnModel().getColumn(4).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("Power")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("Body Building")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Cardio")){
+                            cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
+
+//Progress Bar
+        
+        tTersimpan.getColumnModel().getColumn(5).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell;
+                        
+                        JProgressBar p = new JProgressBar();
+                        p.setMaximum(22);
+                        p.setValue((int) value);
+
+                        cell = p;
+                        
+                        return cell;
+                    }
+                });
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -271,6 +364,7 @@ public class InsertSchedule extends javax.swing.JFrame {
     private javax.swing.JTextPane inID;
     private javax.swing.JTextPane inMemID;
     private javax.swing.JTextPane inPlan;
+    private javax.swing.JTextPane inProgress;
     private javax.swing.JTextPane inSesi;
     private javax.swing.JTextPane inTrID;
     private javax.swing.JLabel jLabel1;
@@ -279,12 +373,14 @@ public class InsertSchedule extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTable tTersimpan;
     // End of variables declaration//GEN-END:variables
 }

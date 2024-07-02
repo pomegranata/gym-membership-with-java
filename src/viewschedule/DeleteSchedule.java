@@ -1,12 +1,16 @@
 package viewschedule;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import model.ModelSchedule;
 
@@ -160,7 +164,79 @@ public class DeleteSchedule extends javax.swing.JFrame {
         }
         ModelSchedule jd = new ModelSchedule(con);
         
-        tTersimpan.setModel(jd.dataModel());                                    
+        tTersimpan.setModel(jd.dataModel());
+        
+// Warna Tabel
+        
+        tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                       if (value.equals("Pagi")){
+                            cell.setBackground(Color.CYAN);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Siang")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Sore")){
+                            cell.setBackground(Color.ORANGE);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Malam")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE); 
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
+
+        tTersimpan.getColumnModel().getColumn(4).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("Power")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("Body Building")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Cardio")){
+                            cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
+
+//Progress Bar
+        
+        tTersimpan.getColumnModel().getColumn(5).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell;
+                        
+                        JProgressBar p = new JProgressBar();
+                        p.setMaximum(22);
+                        p.setValue((int) value);
+
+                        cell = p;
+                        
+                        return cell;
+                    }
+                });
     }//GEN-LAST:event_formWindowActivated
 
     /**
