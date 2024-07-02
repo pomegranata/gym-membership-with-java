@@ -161,20 +161,21 @@ public class FormMember extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane2)
-                                    .addComponent(jScrollPane3)
-                                    .addComponent(jScrollPane5)
-                                    .addComponent(jScrollPane4))
-                                .addGap(108, 108, 108)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane2)
+                                        .addComponent(jScrollPane3)
+                                        .addComponent(jScrollPane5)
+                                        .addComponent(jScrollPane4)))
+                                .addGap(80, 80, 80)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(407, 407, 407)
                         .addComponent(jLabel1)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(263, 263, 263)
                 .addComponent(btnSimpan)
@@ -267,6 +268,9 @@ public class FormMember extends javax.swing.JFrame {
                         } else if (value.equals("Cardio")){
                             cell.setBackground(Color.GREEN);
                             cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
                         }
                         return cell;
                     }
@@ -287,6 +291,9 @@ public class FormMember extends javax.swing.JFrame {
                             cell.setForeground(Color.WHITE);
                         } else if (value.equals("Dmitry")){
                             cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;

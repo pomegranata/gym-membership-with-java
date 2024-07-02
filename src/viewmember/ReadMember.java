@@ -104,7 +104,7 @@ public class ReadMember extends javax.swing.JFrame {
         
         tTersimpan.setModel(m.dataModel());
 
-// Warna Tabel
+ // Warna Tabel
 
         tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
                 new DefaultTableCellRenderer(){
@@ -121,6 +121,9 @@ public class ReadMember extends javax.swing.JFrame {
                             cell.setForeground(Color.BLACK);
                         } else if (value.equals("Cardio")){
                             cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;
@@ -142,6 +145,9 @@ public class ReadMember extends javax.swing.JFrame {
                             cell.setForeground(Color.WHITE);
                         } else if (value.equals("Dmitry")){
                             cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;

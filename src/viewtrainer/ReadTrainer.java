@@ -109,20 +109,20 @@ public class ReadTrainer extends javax.swing.JFrame {
         
 // Warna Tabel
 
-        tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
+        tTersimpan.getColumnModel().getColumn(2).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
                     public Component getTableCellRendererComponent(JTable table,
                             Object value, boolean isSelected, boolean hasFocus, int row, int column){
                         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                         
-                        if (value.equals("Power")){
+                        if (value.equals("Strenght")){
                             cell.setBackground(Color.BLUE);
                             cell.setForeground(Color.WHITE);
-                        } else if (value.equals("Body Building")){
+                        } else if (value.equals("Weightlift")){
                             cell.setBackground(Color.YELLOW);
                             cell.setForeground(Color.BLACK);
-                        } else if (value.equals("Cardio")){
+                        } else if (value.equals("Cardio Training")){
                             cell.setBackground(Color.GREEN);
                             cell.setForeground(Color.BLACK);
                         }
@@ -130,7 +130,7 @@ public class ReadTrainer extends javax.swing.JFrame {
                     }
                 });
         
-         tTersimpan.getColumnModel().getColumn(4).setCellRenderer(
+         tTersimpan.getColumnModel().getColumn(1).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
                     public Component getTableCellRendererComponent(JTable table,
@@ -152,7 +152,7 @@ public class ReadTrainer extends javax.swing.JFrame {
                 });
         
 //Progress Bar
-        tTersimpan.getColumnModel().getColumn(6).setCellRenderer(
+       /* tTersimpan.getColumnModel().getColumn(6).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
                     public Component getTableCellRendererComponent(JTable table,
@@ -167,7 +167,7 @@ public class ReadTrainer extends javax.swing.JFrame {
                         
                         return cell;
                     }
-                });
+                });*/
     }//GEN-LAST:event_formWindowActivated
 
     /**

@@ -34,7 +34,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
               <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="341" max="32767" attributes="0"/>
               <Component id="btnBatal" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
           </Group>
@@ -64,9 +64,9 @@
                   <Component id="jScrollPane6" max="32767" attributes="0"/>
                   <Component id="jScrollPane8" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
-              <Component id="jScrollPane7" min="-2" pref="424" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane7" min="-2" pref="475" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

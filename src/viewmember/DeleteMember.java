@@ -97,6 +97,10 @@ public class DeleteMember extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBatal)
+                .addGap(211, 211, 211))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -104,17 +108,13 @@ public class DeleteMember extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                         .addGap(57, 57, 57)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125))
+                        .addGap(74, 74, 74))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(209, 209, 209)
                         .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnBatal)
-                .addGap(211, 211, 211))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(386, 386, 386)
@@ -175,7 +175,7 @@ public class DeleteMember extends javax.swing.JFrame {
         
         tTersimpan.setModel(m.dataModel());
         
-        // Warna Tabel
+ // Warna Tabel
 
         tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
                 new DefaultTableCellRenderer(){
@@ -192,6 +192,9 @@ public class DeleteMember extends javax.swing.JFrame {
                             cell.setForeground(Color.BLACK);
                         } else if (value.equals("Cardio")){
                             cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;
@@ -213,6 +216,9 @@ public class DeleteMember extends javax.swing.JFrame {
                             cell.setForeground(Color.WHITE);
                         } else if (value.equals("Dmitry")){
                             cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;

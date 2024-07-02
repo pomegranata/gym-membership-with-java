@@ -149,7 +149,7 @@ public class UpdateMember extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(276, 276, 276)
                 .addComponent(btnUpdate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
                 .addComponent(btnBatal)
                 .addGap(206, 206, 206))
             .addGroup(layout.createSequentialGroup()
@@ -174,9 +174,9 @@ public class UpdateMember extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                     .addComponent(jScrollPane6)
                     .addComponent(jScrollPane8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +263,7 @@ public class UpdateMember extends javax.swing.JFrame {
         
         tTersimpan.setModel(m.dataModel());
         
-        // Warna Tabel
+// Warna Tabel
 
         tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
                 new DefaultTableCellRenderer(){
@@ -280,6 +280,9 @@ public class UpdateMember extends javax.swing.JFrame {
                             cell.setForeground(Color.BLACK);
                         } else if (value.equals("Cardio")){
                             cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;
@@ -301,6 +304,9 @@ public class UpdateMember extends javax.swing.JFrame {
                             cell.setForeground(Color.WHITE);
                         } else if (value.equals("Dmitry")){
                             cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;
