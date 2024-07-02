@@ -1,11 +1,11 @@
 # 📋 Gym Membership with Java
 
 ## 📖 Project Description
-The Gym Membership Management System is a comprehensive application designed to efficiently manage the data of gym members, trainers, and schedules. It enables gym administrators to register new members, update member information, and remove members from the system. This functionality is also extended to trainers and schedules. Built using Java, the project follows Object-Oriented Programming (OOP) principles to ensure robust and scalable code.
+The Gym Membership with Java is a comprehensive application designed to efficiently manage the data of gym members, trainers, and schedules. It enables gym administrators to register new members, update member information, and remove members from the system. This functionality is also extended to trainers and schedules. Built using Java, the project follows Object-Oriented Programming (OOP) principles to ensure robust and scalable code.
 
 ## 🚀 Key Features
-* Register New Members: Add new members with complete details such as name, address, phone number, and membership type.
-* Update Member Information: Modify existing member information, including updates to membership type and contact details.
+* Insert Members: Add new members with complete details such as id, name, address, plan, trainer, and price.
+* Update Member Information: Modify existing member information.
 * Delete Members: Remove members from the system easily.
 * Read Members: Read members data from system.
 
@@ -15,7 +15,6 @@ The Gym Membership Management System is a comprehensive application designed to 
 * Programming Language: Java 17+
 * Framework: Java Swing (for GUI)
 * Database: MySQL (for data storage)
-* Tooling: Maven (for dependency management)
 
 ## 📥 Installation
 ### Prerequisites
@@ -37,7 +36,7 @@ cd gym-membership-with-java
 ### Adding a New Member:
 * Open the application and select "Member".
 * Choose "Insert".
-* Fill in all the required fields with information and click "Simpan".
+* Fill in all the required fields with information and click "SIMPAN".
 
 ### Editing Member Information:
 * Open the application and select "Member".
