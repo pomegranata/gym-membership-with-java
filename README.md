@@ -25,25 +25,11 @@ Ensure you have the following installed:
 * Apache Maven
 
 
-### Installation Steps
-
-Clone the Repository:
+### Clone the Repository
 
 ```
 git clone https://github.com/pomegranata/gym-membership-with-java.git
 cd gym-membership-with-java
-```
-
-Build the Project:
-
-```
-mvn clean install
-```
-
-Run the Application:
-
-```
-mvn exec:java -Dexec.mainClass="model.MainForm.java"
 ```
 
 ## 🚀 Usage
