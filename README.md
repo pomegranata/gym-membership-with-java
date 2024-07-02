@@ -28,7 +28,6 @@ Ensure you have the following installed:
 
 ```
 git clone https://github.com/pomegranata/gym-membership-with-java.git
-cd gym-membership-with-java
 ```
 
 ## 🚀 Usage
