@@ -316,7 +316,7 @@ public class UpdateMember extends javax.swing.JFrame {
                         Component cell;
                         
                         JProgressBar p = new JProgressBar();
-                        p.setMaximum(100);
+                        p.setMaximum(30);
                         p.setValue((int) value);
 
                         cell = p;

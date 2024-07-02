@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -106,7 +107,30 @@ public class ReadTrainer extends javax.swing.JFrame {
         
         tTersimpan.setModel(tr.dataModel());
         
-        tTersimpan.getColumnModel().getColumn(1).setCellRenderer(
+// Warna Tabel
+
+        tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("Power")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("Body Building")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Cardio")){
+                            cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
+        
+         tTersimpan.getColumnModel().getColumn(4).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
                     public Component getTableCellRendererComponent(JTable table,
@@ -114,12 +138,33 @@ public class ReadTrainer extends javax.swing.JFrame {
                         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                         
                         if (value.equals("Hermann")){
+                            cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Ivan")){
                             cell.setBackground(Color.BLUE);
                             cell.setForeground(Color.WHITE);
-                        } else {
+                        } else if (value.equals("Dmitry")){
                             cell.setBackground(Color.YELLOW);
                             cell.setForeground(Color.BLACK);
                         }
+                        return cell;
+                    }
+                });
+        
+//Progress Bar
+        tTersimpan.getColumnModel().getColumn(6).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell;
+                        
+                        JProgressBar p = new JProgressBar();
+                        p.setMaximum(100);
+                        p.setValue((int) value);
+
+                        cell = p;
+                        
                         return cell;
                     }
                 });
