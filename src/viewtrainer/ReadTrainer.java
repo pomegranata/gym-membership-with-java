@@ -108,6 +108,30 @@ public class ReadTrainer extends javax.swing.JFrame {
         tTersimpan.setModel(tr.dataModel());
         
 // Warna Tabel
+        
+        tTersimpan.getColumnModel().getColumn(1).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("Hermann")){
+                            cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Ivan")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("Dmitry")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
 
         tTersimpan.getColumnModel().getColumn(2).setCellRenderer(
                 new DefaultTableCellRenderer(){
@@ -125,34 +149,17 @@ public class ReadTrainer extends javax.swing.JFrame {
                         } else if (value.equals("Cardio Training")){
                             cell.setBackground(Color.GREEN);
                             cell.setForeground(Color.BLACK);
-                        }
-                        return cell;
-                    }
-                });
-        
-         tTersimpan.getColumnModel().getColumn(1).setCellRenderer(
-                new DefaultTableCellRenderer(){
-                    @Override
-                    public Component getTableCellRendererComponent(JTable table,
-                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
-                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                        
-                        if (value.equals("Hermann")){
-                            cell.setBackground(Color.GREEN);
-                            cell.setForeground(Color.BLACK);
-                        } else if (value.equals("Ivan")){
-                            cell.setBackground(Color.BLUE);
-                            cell.setForeground(Color.WHITE);
-                        } else if (value.equals("Dmitry")){
-                            cell.setBackground(Color.YELLOW);
+                        } else {
+                            cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
                         }
                         return cell;
                     }
                 });
-        
+
 //Progress Bar
-       /* tTersimpan.getColumnModel().getColumn(6).setCellRenderer(
+        
+        tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
                     public Component getTableCellRendererComponent(JTable table,
@@ -160,14 +167,14 @@ public class ReadTrainer extends javax.swing.JFrame {
                         Component cell;
                         
                         JProgressBar p = new JProgressBar();
-                        p.setMaximum(100);
+                        p.setMaximum(22);
                         p.setValue((int) value);
 
                         cell = p;
                         
                         return cell;
                     }
-                });*/
+                });
     }//GEN-LAST:event_formWindowActivated
 
     /**

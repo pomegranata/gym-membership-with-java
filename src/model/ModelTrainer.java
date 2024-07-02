@@ -20,7 +20,7 @@ public class ModelTrainer extends Model{
     public String select() {
         String s="";
         try { 
-            String query = "select id, nama, spesialisasi from trainer";
+            String query = "select id, nama, spesialisasi, payment_progress from trainer";
             st  = con.prepareStatement(query);
             rs = st.executeQuery(query);
             
@@ -28,6 +28,7 @@ public class ModelTrainer extends Model{
                 s += rs.getString("id")+ " ";
                 s +="  "+rs.getString("nama")+ " ";
                 s +="  "+rs.getString("spesialisasi")+ " ";
+                s +="  "+rs.getString("payment_progress")+ " ";
             }
         } catch (SQLException ex) {
             System.out.println("Gagal Eksekusi");
@@ -39,7 +40,7 @@ public class ModelTrainer extends Model{
     public DefaultTableModel dataModel(){
         DefaultTableModel r=null;
         try {
-            String query = "select id, nama, spesialisasi from trainer";
+            String query = "select id, nama, spesialisasi, payment_progress from trainer";
             st  = con.prepareStatement(query);
             rs = st.executeQuery(query);
             r = buildTableModel(rs);
@@ -49,11 +50,11 @@ public class ModelTrainer extends Model{
         return r;
     }
     
-    public int insert(String id, String nama, String spesialisasi){
+    public int insert(String id, String nama, String spesialisasi, String payment_progress){
         int i=-1;
         try{
-            String query = "insert into trainer(id, nama, spesialisasi) "
-                    + "values('"+id+"','"+nama+"','"+spesialisasi+"')";
+            String query = "insert into trainer(id, nama, spesialisasi, payment_progress) "
+                    + "values('"+id+"','"+nama+"','"+spesialisasi+"', '"+payment_progress+"')";
             st  = con.prepareStatement(query);
             i = st.executeUpdate(query);
         }catch(SQLException ex){
@@ -62,10 +63,10 @@ public class ModelTrainer extends Model{
         return i;
     }
     
-    public int update(String id, String nama, String spesialisasi) {
+    public int update(String id, String nama, String spesialisasi, String payment_progress) {
         int i=-1;
         try{
-            String query = "update trainer set id='"+id+"', nama='"+nama+"',spesialisasi='"+spesialisasi+"'"
+            String query = "update trainer set id='"+id+"', nama='"+nama+"',spesialisasi='"+spesialisasi+"', payment_progress='"+payment_progress+"'"
                     + "where id='"+id+"'";
             st  = con.prepareStatement(query);
             i = st.executeUpdate(query);
