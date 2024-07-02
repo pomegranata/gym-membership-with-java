@@ -254,6 +254,36 @@ public class UpdateSchedule extends javax.swing.JFrame {
         
 // Warna Tabel
         
+        tTersimpan.getColumnModel().getColumn(2).setCellRenderer(
+                new DefaultTableCellRenderer(){
+                    @Override
+                    public Component getTableCellRendererComponent(JTable table,
+                            Object value, boolean isSelected, boolean hasFocus, int row, int column){
+                        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                        
+                        if (value.equals("TR-01")){
+                            cell.setBackground(Color.RED);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("TR-02")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("TR-03")){
+                            cell.setBackground(Color.ORANGE);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("TR-04")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        }  else if (value.equals("TR-05")){
+                            cell.setBackground(Color.GREEN);
+                            cell.setForeground(Color.BLACK);
+                        } else {
+                            cell.setBackground(Color.WHITE);
+                            cell.setForeground(Color.BLACK);
+                        }
+                        return cell;
+                    }
+                });
+
         tTersimpan.getColumnModel().getColumn(3).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
@@ -272,7 +302,7 @@ public class UpdateSchedule extends javax.swing.JFrame {
                             cell.setForeground(Color.BLACK);
                         } else if (value.equals("Malam")){
                             cell.setBackground(Color.BLUE);
-                            cell.setForeground(Color.WHITE); 
+                            cell.setForeground(Color.WHITE);
                         } else {
                             cell.setBackground(Color.WHITE);
                             cell.setForeground(Color.BLACK);
@@ -289,12 +319,18 @@ public class UpdateSchedule extends javax.swing.JFrame {
                         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                         
                         if (value.equals("Power")){
-                            cell.setBackground(Color.BLUE);
+                            cell.setBackground(Color.RED);
                             cell.setForeground(Color.WHITE);
-                        } else if (value.equals("Body Building")){
+                        } else if (value.equals("Cardio")){
                             cell.setBackground(Color.YELLOW);
                             cell.setForeground(Color.BLACK);
-                        } else if (value.equals("Cardio")){
+                        } else if (value.equals("Body Building")){
+                            cell.setBackground(Color.ORANGE);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Endurance")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("Yoga")){
                             cell.setBackground(Color.GREEN);
                             cell.setForeground(Color.BLACK);
                         } else {

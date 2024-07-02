@@ -185,12 +185,18 @@ public class DeleteMember extends javax.swing.JFrame {
                         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                         
                         if (value.equals("Power")){
-                            cell.setBackground(Color.BLUE);
+                            cell.setBackground(Color.RED);
                             cell.setForeground(Color.WHITE);
-                        } else if (value.equals("Body Building")){
+                        } else if (value.equals("Cardio")){
                             cell.setBackground(Color.YELLOW);
                             cell.setForeground(Color.BLACK);
-                        } else if (value.equals("Cardio")){
+                        } else if (value.equals("Body Building")){
+                            cell.setBackground(Color.ORANGE);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Endurance")){
+                            cell.setBackground(Color.BLUE);
+                            cell.setForeground(Color.WHITE);
+                        } else if (value.equals("Yoga")){
                             cell.setBackground(Color.GREEN);
                             cell.setForeground(Color.BLACK);
                         } else {
@@ -209,13 +215,19 @@ public class DeleteMember extends javax.swing.JFrame {
                         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                         
                         if (value.equals("Hermann")){
-                            cell.setBackground(Color.GREEN);
-                            cell.setForeground(Color.BLACK);
+                            cell.setBackground(Color.RED);
+                            cell.setForeground(Color.WHITE);
                         } else if (value.equals("Ivan")){
+                            cell.setBackground(Color.YELLOW);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Dmitry")){
+                            cell.setBackground(Color.ORANGE);
+                            cell.setForeground(Color.BLACK);
+                        } else if (value.equals("Demian")){
                             cell.setBackground(Color.BLUE);
                             cell.setForeground(Color.WHITE);
-                        } else if (value.equals("Dmitry")){
-                            cell.setBackground(Color.YELLOW);
+                        }  else if (value.equals("Natasha")){
+                            cell.setBackground(Color.GREEN);
                             cell.setForeground(Color.BLACK);
                         } else {
                             cell.setBackground(Color.WHITE);
@@ -226,6 +238,7 @@ public class DeleteMember extends javax.swing.JFrame {
                 });
         
 //Progress Bar
+
         tTersimpan.getColumnModel().getColumn(6).setCellRenderer(
                 new DefaultTableCellRenderer(){
                     @Override
