@@ -1,7 +1,7 @@
 # 📋 Gym Membership with Java
 
 ## 📖 Project Description
-The Gym Membership with Java is a comprehensive application designed to efficiently manage the data of gym members, trainers, and schedules. It enables gym administrators to register new members, update member information, and remove members from the system. This functionality is also extended to trainers and schedules. Built using Java, the project follows Object-Oriented Programming (OOP) principles to ensure robust and scalable code.
+The Gym Membership with Java is a comprehensive application designed to efficiently manage the data of gym members, trainers, and schedules. It enables gym administrators to register new members, update member information, and remove members from the system. This functionality is also extended to Trainers and Schedules. Built using Java, the project follows Object-Oriented Programming (OOP) principles to ensure robust and scalable code.
 
 ## 🚀 Key Features
 * Insert Members: Add new members with complete details such as id, name, address, plan, trainer, and price.
