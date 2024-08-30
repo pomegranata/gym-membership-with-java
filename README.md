@@ -1,4 +1,4 @@
-# 📋 Gym Membership with Java
+# 🏋🏻 Gym Membership with Java
 
 ## 📖 Project Description
 The Gym Membership with Java is a comprehensive application designed to efficiently manage the data of gym members, trainers, and schedules. It enables gym administrators to register new members, update member information, and remove members from the system. This functionality is also extended to Trainers and Schedules. Built using Java, the project follows Object-Oriented Programming (OOP) principles to ensure robust and scalable code.
@@ -22,6 +22,8 @@ Ensure you have the following installed:
 
 * Java Development Kit (JDK) 17 or newer
 * Apache Maven
+* XAMPP or similar
+* MySQL or another database management system
 
 
 ### Clone the Repository
@@ -30,7 +32,7 @@ Ensure you have the following installed:
 git clone https://github.com/pomegranata/gym-membership-with-java.git
 ```
 
-## 🚀 Usage
+## 🌐 Usage
 
 ### Adding a New Member:
 * Open the application and select "Member".
